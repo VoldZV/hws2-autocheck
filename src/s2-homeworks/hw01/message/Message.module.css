@@ -1,31 +1,87 @@
-.message {
+:root {
+    --color-bgMessage: #0066CC;
+    --color-textMessage: rgba(0, 0, 0, 1);
+    --sizeAfterMessageElem: 12px
+}
 
+
+.message {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
 .imageAndText {
-
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: row-reverse;
+    gap: 12px;
 }
 
 .imageAndText img {
-
+    width: 48px;
+    height: 48px;
+    align-self: flex-end;
 }
 
 .text {
-
+    padding: 8px 13px;
+    width: 527px;
+    min-height: 60px;
+    background-color: var(--color-bgMessage);
+    border-radius: 10px 10px 0 10px;
+    position: relative;
 }
 
 .text:after {
-
+    position: absolute;
+    display: block;
+    content: '';
+    z-index: -1;
+    /*background: radial-gradient(ellipse at top right, white var(--sizeAfterMessageElem), var(--color-bgMessage) var(--sizeAfterMessageElem));*/
+    background: linear-gradient(39deg, var(--color-bgMessage) 0% 45%, transparent 45% 100%),
+    radial-gradient(ellipse at top right, white var(--sizeAfterMessageElem), var(--color-bgMessage) var(--sizeAfterMessageElem));
+    width: var(--sizeAfterMessageElem);
+    height: var(--sizeAfterMessageElem);
+    right: calc(var(--sizeAfterMessageElem)*(-1));
+    bottom: 0;
 }
 
 .name {
-
+    display: flex;
+    justify-content: flex-end;
+    min-width: 40px;
+    height: 22px;
+    font-family: Montserrat sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 22px;
+    color: rgba(255, 255, 255, 1);
 }
 
 .messageText {
-
+    width: 489px;
+    min-height: 20px;
+    font-family: Montserrat sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: left;
+    color: rgba(255, 255, 255, 1);
 }
 
 .time {
-
+    margin-top: 5px;
+    width: 48px;
+    text-align: center;
+    height: 12px;
+    font-family: Montserrat sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 12px;
+    letter-spacing: 0;
+    color: rgba(0, 0, 0, 1);
 }

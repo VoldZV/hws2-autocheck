@@ -3,9 +3,26 @@
 }
 
 .hw {
-
+    margin: 0 auto;
+    width: 1280px;
+    padding-bottom: 30px;
+    position: relative;
 }
 
 .hwTitle {
-
+    text-align: center;
+    border-bottom: 1px solid black;
+    height: 27px;
+    font-family: Montserrat, sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 27px;
+    color: #000000;
+    letter-spacing: 0.05em;
+    margin: 0 auto;
 }
+
+
+
+
+
