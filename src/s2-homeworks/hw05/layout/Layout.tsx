@@ -6,25 +6,19 @@ type PropsType = {
     children: ReactNode
 }
 
-export const Layout: FC<PropsType> = ({ children }) => {
+export const Layout: FC<PropsType> = ({children}) => {
     const [open, setOpen] = useState(false)
     const handleClose = () => setOpen(false)
     const handleOpen = () => setOpen(true)
 
     useEffect(() => {
-        if (open) {
-            document.body.style.overflow = 'hidden'
-            document.body.style.paddingRight = '17px'
-        } else {
-            document.body.style.overflow = 'unset'
-            document.body.style.paddingRight = '0px'
-        }
+        document.body.style.overflow = open ? 'hidden' : 'unset'
     }, [open]) // отключает прокрутку при открытом меню
 
     return (
         <>
-            <Sidebar open={open} handleClose={handleClose} />
-            <Header handleOpen={handleOpen} />
+            <Sidebar open={open} handleClose={handleClose}/>
+            <Header handleOpen={handleOpen}/>
             <div>
                 {/*страницы*/}
                 {children}
