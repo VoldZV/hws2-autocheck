@@ -1,18 +1,24 @@
 .App {
     --header_height: 60px;
-    padding-right: calc(20px - (100vw - 100%));
+    padding-right: calc(17px - (100vw - 100%));
+}
+
+.App > div {
+    background-color: rgb(243, 242, 242);
+    width: 100vw;
 }
 
 .hw {
     margin: 0 auto;
-    width: 1280px;
+    width: 100vw;
     padding-bottom: 30px;
     position: relative;
 }
 
 #hw1 {
-    width: 1280px;
+    width: 100vw;
     margin: 0 auto;
+
 }
 
 .hwTitle {
@@ -26,4 +32,5 @@
     color: #000000;
     letter-spacing: 0.05em;
     margin: 0 auto;
+    width: 100vw;
 }

@@ -12,10 +12,12 @@ type PropsType = {
 export const Sidebar: FC<PropsType> = ({open, handleClose}) => {
     const sidebarClass = s.sidebar
         + (open ? ' ' + s.open : '')
+    const bgClass = s.background + (open ? "" : ` ${s.sidebarNone}`)
+
     return (
         <>
             {/*затемнение справа от открытого меню*/}
-            {open && <div className={s.background} onClick={handleClose}/>}
+            <div className={bgClass} onClick={handleClose}/>
 
             <aside className={sidebarClass}>
                 <button className={s.close} onClick={handleClose}>

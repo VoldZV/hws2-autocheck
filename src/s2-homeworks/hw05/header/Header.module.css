@@ -2,17 +2,22 @@
     width: 24px;
     height: 24px;
 }
+
 .burgerMenuIcon:hover {
     transform: scale(1.2);
 }
 
 .header {
-    width: 1280px;
     height: 60px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+div > .header {
+    width: 1280px;
+    background-color: white;
 }
 
 .header h1 {

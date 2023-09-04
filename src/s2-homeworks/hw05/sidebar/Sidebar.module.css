@@ -1,3 +1,64 @@
+@keyframes sidebarToNone {
+    0% {
+        display: flex;
+        opacity: 1;
+    }
+    99% {
+        display: flex;
+        opacity: 0.1;
+    }
+    100% {
+        display: none;
+        opacity: 0;
+    }
+}
+@keyframes sidebarFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: flex;
+        opacity: 0;
+    }
+
+    100% {
+        display: flex;
+        opacity: 1;
+    }
+}
+@keyframes bgFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: none;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 0.3;
+    }
+}
+@keyframes bgToNone {
+    0% {
+        display: block;
+        opacity: 0.3;
+    }
+    1% {
+        display: block;
+        opacity: 0.3;
+    }
+    100% {
+        display: none;
+        opacity: 0;
+    }
+}
+
 .sidebar {
     flex-direction: column;
     justify-content: flex-start;
@@ -9,19 +70,31 @@
     padding: 16px;
     background-color: white;
     display: none;
+    opacity: 0;
+    animation: sidebarToNone 0.2s ease-in-out;
 }
 
 .sidebar.open {
     display: flex;
+    opacity: 1;
+    animation: sidebarFromNone 0.2s ease-in-out;
 }
 
-.background {
+div > .background {
+    display: block;
     position: absolute;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 1);
-    opacity: 30%;
+    margin-left: 317px;
+    background-color: rgb(0, 0, 0, 1);
+    opacity: 0.3;
     z-index: 9;
+    animation: bgFromNone 0.2s ease-in-out;
+}
+
+div > .background.sidebarNone {
+    display: none;
+    animation: bgToNone 0.2s ease-in-out;
 }
 
 .nav {
