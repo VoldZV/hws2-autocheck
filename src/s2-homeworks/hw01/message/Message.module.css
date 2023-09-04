@@ -40,10 +40,10 @@
     position: absolute;
     display: block;
     content: '';
-    z-index: -1;
+    z-index: 1;
     /*background: radial-gradient(ellipse at top right, white var(--sizeAfterMessageElem), var(--color-bgMessage) var(--sizeAfterMessageElem));*/
     background: linear-gradient(39deg, var(--color-bgMessage) 0% 45%, transparent 45% 100%),
-    radial-gradient(ellipse at top right, white var(--sizeAfterMessageElem), var(--color-bgMessage) var(--sizeAfterMessageElem));
+    radial-gradient(ellipse at top right, rgb(243, 242, 242) var(--sizeAfterMessageElem), var(--color-bgMessage) var(--sizeAfterMessageElem));
     width: var(--sizeAfterMessageElem);
     height: var(--sizeAfterMessageElem);
     right: calc(var(--sizeAfterMessageElem)*(-1));

@@ -9,6 +9,11 @@
     position: relative;
 }
 
+#hw1 {
+    width: 1280px;
+    margin: 0 auto;
+}
+
 .hwTitle {
     text-align: center;
     border-bottom: 1px solid black;
