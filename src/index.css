@@ -29,4 +29,8 @@ code {
 #hw5-page-pre-junior {
     background-color: rgba(243, 242, 242, 0.84);
 }
+#hw5-page-junior {
+    background-color: rgba(243, 242, 242, 0.84);
+    min-height: 100vh;
+}
 
