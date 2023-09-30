@@ -11,9 +11,9 @@
 .radio::after {
     position: absolute;
     content: '';
-    width: 16px;
-    height: 16px;
-    border: 2px solid black;
+    width: 15px;
+    height: 15px;
+    border: 3px solid black;
     border-radius: 50%;
     z-index: 1;
 }
