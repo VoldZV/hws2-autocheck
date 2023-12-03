@@ -49,7 +49,7 @@ const HW13 = () => {
                 setCode(`Код ${reqStatus}!`)
                 setImage(errImage)
                 setText(err.response?.data?.errorText || 'Error')
-                setInfo(err.response?.data?.info || 'some error code')
+                setInfo(err.response?.data?.info || 'Error')
             })
     }
 
