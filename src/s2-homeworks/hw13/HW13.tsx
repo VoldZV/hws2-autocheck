@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import s2 from '../../s1-main/App.module.css'
 import s from './HW13.module.css'
 import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
-import axios from 'axios'
+import axios, {AxiosError} from 'axios'
 import success200 from './images/200.svg'
 import error400 from './images/400.svg'
 import error500 from './images/500.svg'
@@ -20,6 +20,7 @@ const HW13 = () => {
     const [info, setInfo] = useState('')
     const [image, setImage] = useState('')
 
+    const disabledBtn = info === '...loading'
     const send = (x?: boolean | null) => () => {
         const url =
             x === null
@@ -37,11 +38,16 @@ const HW13 = () => {
                 setCode('Код 200!')
                 setImage(success200)
                 // дописать
-
+                setInfo('')
             })
             .catch((e) => {
                 // дописать
-
+                const  err = e as AxiosError
+                const reqStatus = err.response?.status
+                const errImage = reqStatus === 400 ? error400 : reqStatus === 500 ? error500 : errorUnknown
+                setCode(`Код ${reqStatus}!`)
+                setImage(errImage)
+                setInfo('')
             })
     }
 
@@ -56,7 +62,7 @@ const HW13 = () => {
                         onClick={send(true)}
                         xType={'secondary'}
                         // дописать
-
+                        disabled ={disabledBtn}
                     >
                         Send true
                     </SuperButton>
@@ -65,7 +71,7 @@ const HW13 = () => {
                         onClick={send(false)}
                         xType={'secondary'}
                         // дописать
-
+                        disabled ={disabledBtn}
                     >
                         Send false
                     </SuperButton>
@@ -74,7 +80,7 @@ const HW13 = () => {
                         onClick={send(undefined)}
                         xType={'secondary'}
                         // дописать
-
+                        disabled ={disabledBtn}
                     >
                         Send undefined
                     </SuperButton>
@@ -83,7 +89,7 @@ const HW13 = () => {
                         onClick={send(null)} // имитация запроса на не корректный адрес
                         xType={'secondary'}
                         // дописать
-
+                        disabled ={disabledBtn}
                     >
                         Send null
                     </SuperButton>
