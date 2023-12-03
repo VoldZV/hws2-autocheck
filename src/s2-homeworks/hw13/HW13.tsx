@@ -48,8 +48,8 @@ const HW13 = () => {
                 const errImage = reqStatus === 400 ? error400 : reqStatus === 500 ? error500 : errorUnknown
                 setCode(`Код ${reqStatus}!`)
                 setImage(errImage)
-                setInfo(err.code || 'some error code')
                 setText(err.response?.data?.errorText || 'Error')
+                setInfo(err.response?.data?.info || 'some error code')
             })
     }
 
