@@ -35,7 +35,6 @@ const HW13 = () => {
         axios
             .post(url, {success: x})
             .then((res) => {
-                debugger
                 setCode('Код 200!')
                 setImage(success200)
                 // дописать
@@ -44,14 +43,13 @@ const HW13 = () => {
             })
             .catch((e) => {
                 // дописать
-                debugger
-                const  err = e as AxiosError
+                const  err = e as AxiosError<any,any>
                 const reqStatus = err.response?.status
                 const errImage = reqStatus === 400 ? error400 : reqStatus === 500 ? error500 : errorUnknown
                 setCode(`Код ${reqStatus}!`)
                 setImage(errImage)
-                setInfo(err.code || 'some error')
-                setText(err.message)
+                setInfo(err.code || 'some error code')
+                setText(err.response?.data?.errorText || 'Error')
             })
     }
 
