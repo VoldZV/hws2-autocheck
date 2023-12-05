@@ -65,7 +65,6 @@ const HW15 = () => {
 
     const onChangePagination = (newPage: number, newCount: number) => {
         // делает студент
-        const curParams = Object.fromEntries(searchParams)
 
         const newParams = {page: String(newPage),
             count: String(newCount),
@@ -82,7 +81,6 @@ const HW15 = () => {
 
     const onChangeSort = (newSort: string) => {
         // делает студент
-        const curParams = Object.fromEntries(searchParams)
 
         const newParams = {page: '1',
             count: String(count),
