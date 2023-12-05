@@ -41,12 +41,11 @@ const getTechs = (params: ParamsType) => {
 const HW15 = () => {
     const [sort, setSort] = useState('')
     const [page, setPage] = useState(1)
-    const [count, setCount] = useState(4)
+    const [count, setCount] = useState(5)
     const [idLoading, setLoading] = useState(false)
     const [totalCount, setTotalCount] = useState(100)
     const [searchParams, setSearchParams] = useSearchParams()
     const [techs, setTechs] = useState<TechType[]>([])
-
     const sendQuery = (params: any) => {
         setLoading(true)
         getTechs(params)
@@ -54,6 +53,11 @@ const HW15 = () => {
                 // делает студент
 
                 // сохранить пришедшие данные
+                if (res) {
+                    setTechs(res.data.techs)
+                    setTotalCount(res.data.totalCount)
+                }
+                setLoading(false)
 
                 //
             })
@@ -61,24 +65,34 @@ const HW15 = () => {
 
     const onChangePagination = (newPage: number, newCount: number) => {
         // делает студент
+        const curParams = Object.fromEntries(searchParams)
 
-        // setPage(
-        // setCount(
+        const newParams = {page: String(newPage),
+            count: String(newCount),
+            sort: sort
+        }
+        setPage(newPage)
+        newCount !== count && setCount(newCount)
 
-        // sendQuery(
-        // setSearchParams(
+        sendQuery(newParams)
+        setSearchParams(newParams)
 
         //
     }
 
     const onChangeSort = (newSort: string) => {
         // делает студент
+        const curParams = Object.fromEntries(searchParams)
 
-        // setSort(
-        // setPage(1) // при сортировке сбрасывать на 1 страницу
+        const newParams = {page: '1',
+            count: String(count),
+            sort: newSort
+        }
+        setSort(newSort)
+        setPage(1) // при сортировке сбрасывать на 1 страницу
 
-        // sendQuery(
-        // setSearchParams(
+        sendQuery(newParams)
+        setSearchParams(newParams)
 
         //
     }
